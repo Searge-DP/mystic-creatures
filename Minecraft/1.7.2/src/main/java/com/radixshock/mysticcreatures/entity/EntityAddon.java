@@ -24,6 +24,11 @@ public class EntityAddon extends Entity
 			this.rotationPitch = this.ridingEntity.rotationPitch;
 			this.rotationYaw = this.ridingEntity.rotationYaw;
 		}
+		
+		else if (ridingEntity == null && ticksExisted > 10)
+		{
+			setDead();
+		}
 	}
 
 	@Override
