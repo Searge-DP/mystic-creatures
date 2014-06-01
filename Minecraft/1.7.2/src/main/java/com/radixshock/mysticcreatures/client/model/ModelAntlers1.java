@@ -111,24 +111,14 @@ public class ModelAntlers1 extends ModelBiped
 	@Override
 	public void render(Entity entity, float rotateAngleX, float rotateAngleY, float passNumber, float unused2, float unused3, float interpolation)
 	{
-		if (passNumber == 0)
+		for (Map.Entry<ModelRenderer, Boolean> entry : modelMap.entrySet())
 		{
-			lPointOut1.render(interpolation);
-			lPointOutEnd.render(interpolation);
-			lPointOut2.render(interpolation);
-			lShaft.render(interpolation);
-			lPointIn.render(interpolation);
-			lTop.render(interpolation);
-		}
-		
-		if (passNumber == 1)
-		{
-			rPointOut1.render(interpolation);
-			rPointOutEnd.render(interpolation);
-			rPointOut2.render(interpolation);
-			rShaft.render(interpolation);
-			rPointIn.render(interpolation);
-			rTop.render(interpolation);
+			final boolean isLeft = entry.getValue();
+
+			if ((passNumber == 0 && isLeft) || (passNumber == 1 && !isLeft))
+			{
+				entry.getKey().render(interpolation);
+			}
 		}
 	}
 
