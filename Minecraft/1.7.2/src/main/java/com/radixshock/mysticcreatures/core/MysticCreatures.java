@@ -9,6 +9,7 @@ import com.radixshock.radixcore.network.AbstractPacketCodec;
 import com.radixshock.radixcore.network.AbstractPacketHandler;
 import com.radixshock.radixcore.network.PacketPipeline;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -37,6 +38,8 @@ public class MysticCreatures extends UnenforcedCore
 	{
 		instance = this;
 		logger = new ModLogger(this);
+		
+		FMLCommonHandler.instance().bus().register(new KeyHandler());
 	}
 
 	@Override
@@ -122,5 +125,22 @@ public class MysticCreatures extends UnenforcedCore
 	public Class getEventHookClass()
 	{
 		return EventHooks.class;
+	}
+	
+	public static float interpolateRotation(float rotationA, float rotationB, float interpolation)
+	{
+		float difference;
+
+		for (difference = rotationB - rotationA; difference < -180.0F; difference += 360.0F)
+		{
+			;
+		}
+
+		while (difference >= 180.0F)
+		{
+			difference -= 360.0F;
+		}
+
+		return rotationA + difference * interpolation;
 	}
 }
