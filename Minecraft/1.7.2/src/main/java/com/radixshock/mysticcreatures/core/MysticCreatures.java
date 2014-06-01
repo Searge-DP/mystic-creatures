@@ -1,11 +1,8 @@
 package com.radixshock.mysticcreatures.core;
 
-import com.radixshock.mysticcreatures.core.forge.CommonProxy;
 import com.radixshock.mysticcreatures.core.forge.EventHooks;
-import com.radixshock.mysticcreatures.entity.EntityAddon;
 import com.radixshock.radixcore.core.ModLogger;
 import com.radixshock.radixcore.core.RadixCore;
-import com.radixshock.radixcore.core.RadixRegistry;
 import com.radixshock.radixcore.core.UnenforcedCore;
 import com.radixshock.radixcore.enums.EnumNetworkType;
 import com.radixshock.radixcore.network.AbstractPacketCodec;
@@ -15,18 +12,13 @@ import com.radixshock.radixcore.network.PacketPipeline;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = "mysticcreatures", name = "Mystic Creatures", version = Constants.VERSION, dependencies = "required-after:radixcore")
 public class MysticCreatures extends UnenforcedCore
 {
 	@Instance("mysticcreatures")
-	private static MysticCreatures		instance;
-	
-	@SidedProxy(clientSide = "com.radixshock.mysticcreatures.core.forge.ClientProxy", serverSide = "com.radixshock.mysticcreatures.core.forge.CommonProxy")
-	public static CommonProxy		proxy;
+	private static MysticCreatures	instance;
 	
 	private ModLogger logger;
 	
@@ -35,7 +27,7 @@ public class MysticCreatures extends UnenforcedCore
 		RadixCore.registeredMods.add(this);
 	}
 	
-	public MysticCreatures getInstance()
+	public static MysticCreatures getInstance()
 	{
 		return instance;
 	}
@@ -48,25 +40,7 @@ public class MysticCreatures extends UnenforcedCore
 	}
 
 	@Override
-	public void initializeProxy()
-	{
-		proxy.registerRenderers();
-	}
-
-	@Override
 	public void initializeNetwork()
-	{
-		
-	}
-
-	@Override
-	public void initializeEntities()
-	{
-		RadixRegistry.Entities.registerModEntity(this, EntityAddon.class);
-	}
-	
-	@Override
-	public void initializeCommands(FMLServerStartingEvent event)
 	{
 		
 	}
