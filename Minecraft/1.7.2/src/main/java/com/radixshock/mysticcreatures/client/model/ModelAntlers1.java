@@ -1,171 +1,122 @@
 package com.radixshock.mysticcreatures.client.model;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
+import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 
-public class ModelAntlers1 extends ModelBiped
+public class ModelAntlers1 extends AbstractSpecial
 {
-	/** Key = Is model for the left side, Value = the model */
-	private final Map<ModelRenderer, Boolean> modelMap;
-
-	ModelRenderer lPointOut1;
-	ModelRenderer lPointOutEnd;
-	ModelRenderer lPointOut2;
-	ModelRenderer lShaft;
-	ModelRenderer lPointIn;
-	ModelRenderer lTop;
-	ModelRenderer rPointOut1;
-	ModelRenderer rPointOutEnd;
-	ModelRenderer rPointOut2;
-	ModelRenderer rShaft;
-	ModelRenderer rPointIn;
-	ModelRenderer rTop;
+	ModelRenderer r5;
+	ModelRenderer r3;
+	ModelRenderer r2;
+	ModelRenderer r1;
+	ModelRenderer r6;
+	ModelRenderer r4;
+	ModelRenderer refHead;
+	ModelRenderer l1;
+	ModelRenderer l5;
+	ModelRenderer l6;
+	ModelRenderer l2;
+	ModelRenderer l3;
+	ModelRenderer l4;
 
 	public ModelAntlers1()
 	{
 		textureWidth = 64;
 		textureHeight = 32;
+		r5 = new ModelRenderer(this, 8, 3);
+		r5.addBox(-2.9F, -11F, -2F, 1, 1, 1);
+		r5.setRotationPoint(0F, 0F, 0F);
+		r5.setTextureSize(64, 32);
+		r5.mirror = true;
+		setRotation(r5, -0.1858931F, 0.0371786F, -0.0371786F);
+		r3 = new ModelRenderer(this, 0, 2);
+		r3.addBox(-4.533333F, -11.4F, -2F, 1, 1, 1);
+		r3.setRotationPoint(0F, 0F, 0F);
+		r3.setTextureSize(64, 32);
+		r3.mirror = true;
+		setRotation(r3, -0.1858931F, 0.0371786F, -0.0371786F);
+		r2 = new ModelRenderer(this, 4, 3);
+		r2.addBox(-3.6F, -11F, -2F, 1, 1, 1);
+		r2.setRotationPoint(0F, 0F, 0F);
+		r2.setTextureSize(64, 32);
+		r2.mirror = true;
+		setRotation(r2, -0.1858931F, 0.0371786F, -0.0371786F);
+		r1 = new ModelRenderer(this, 12, 3);
+		r1.addBox(-2.5F, -11.8F, -2F, 1, 4, 1);
+		r1.setRotationPoint(0F, 0F, 0F);
+		r1.setTextureSize(64, 32);
+		r1.mirror = true;
+		setRotation(r1, -0.1858931F, 0.0371786F, -0.0371786F);
+		r6 = new ModelRenderer(this, 16, 5);
+		r6.addBox(-1.8F, -11F, -2F, 1, 1, 1);
+		r6.setRotationPoint(0F, 0F, 0F);
+		r6.setTextureSize(64, 32);
+		r6.mirror = true;
+		setRotation(r6, -0.1858931F, 0.0371786F, -0.0371786F);
+		r4 = new ModelRenderer(this, 12, 0);
+		r4.addBox(-2.9F, -12.7F, -2F, 1, 1, 1);
+		r4.setRotationPoint(0F, 0F, 0F);
+		r4.setTextureSize(64, 32);
+		r4.mirror = true;
+		setRotation(r4, -0.1858931F, 0.0371786F, -0.0371786F);
+		refHead = new ModelRenderer(this, 30, 0);
+		refHead.addBox(-4F, -8F, -4F, 8, 8, 8);
+		refHead.setRotationPoint(0F, 0F, 0F);
+		refHead.setTextureSize(64, 32);
+		refHead.mirror = true;
+		setRotation(refHead, 0F, 0F, 0F);
+		l1 = new ModelRenderer(this, 12, 3);
+		l1.addBox(1.5F, -11.8F, -2F, 1, 4, 1);
+		l1.setRotationPoint(0F, 0F, 0F);
+		l1.setTextureSize(64, 32);
+		l1.mirror = true;
+		setRotation(l1, -0.1858931F, 0.0371786F, 0.0371755F);
+		l5 = new ModelRenderer(this, 8, 3);
+		l5.addBox(1.8F, -11F, -2F, 1, 1, 1);
+		l5.setRotationPoint(0F, 0F, 0F);
+		l5.setTextureSize(64, 32);
+		l5.mirror = true;
+		setRotation(l5, -0.1858931F, 0.0371786F, 0.0371755F);
+		l6 = new ModelRenderer(this, 16, 5);
+		l6.addBox(0.8F, -11F, -2F, 1, 1, 1);
+		l6.setRotationPoint(0F, 0F, 0F);
+		l6.setTextureSize(64, 32);
+		l6.mirror = true;
+		setRotation(l6, -0.1858931F, 0.0371786F, 0.0371755F);
+		l2 = new ModelRenderer(this, 4, 3);
+		l2.addBox(2.6F, -11F, -2F, 1, 1, 1);
+		l2.setRotationPoint(0F, 0F, 0F);
+		l2.setTextureSize(64, 32);
+		l2.mirror = true;
+		setRotation(l2, -0.1858931F, 0.0371786F, 0.0371755F);
+		l3 = new ModelRenderer(this, 0, 2);
+		l3.addBox(3.5F, -11.4F, -2F, 1, 1, 1);
+		l3.setRotationPoint(0F, 0F, 0F);
+		l3.setTextureSize(64, 32);
+		l3.mirror = true;
+		setRotation(l3, -0.1858931F, 0.0371786F, 0.0371755F);
+		l4 = new ModelRenderer(this, 12, 0);
+		l4.addBox(1.9F, -12.7F, -2F, 1, 1, 1);
+		l4.setRotationPoint(0F, 0F, 0F);
+		l4.setTextureSize(64, 32);
+		l4.mirror = true;
+		setRotation(l4, -0.1858931F, 0.0371786F, 0.0371755F);
 
-		lPointOut1 = new ModelRenderer(this, 0, 0);
-		lPointOut1.addBox(-0.9F, -3F, -0.5F, 1, 1, 1);
-		lPointOut1.setRotationPoint(2F, -8F, 0F);
-		lPointOut1.setTextureSize(64, 32);
-		lPointOut1.mirror = true;
-		setRotation(lPointOut1, 0.1858931F, -3.141593F, -0.0371786F);
-		lPointOutEnd = new ModelRenderer(this, 0, 0);
-		lPointOutEnd.addBox(-2.533333F, -3.4F, -0.4F, 1, 1, 1);
-		lPointOutEnd.setRotationPoint(2F, -8F, 0F);
-		lPointOutEnd.setTextureSize(64, 32);
-		lPointOutEnd.mirror = true;
-		setRotation(lPointOutEnd, 0.1858931F, -3.141593F, -0.0371786F);
-		lPointOut2 = new ModelRenderer(this, 0, 0);
-		lPointOut2.addBox(-1.8F, -3F, -0.5333334F, 1, 1, 1);
-		lPointOut2.setRotationPoint(2F, -8F, 0F);
-		lPointOut2.setTextureSize(64, 32);
-		lPointOut2.mirror = true;
-		setRotation(lPointOut2, 0.1858931F, -3.141593F, -0.0371786F);
-		lShaft = new ModelRenderer(this, 0, 0);
-		lShaft.addBox(-0.5F, -4F, -0.4666667F, 1, 4, 1);
-		lShaft.setRotationPoint(2F, -8F, 0F);
-		lShaft.setTextureSize(64, 32);
-		lShaft.mirror = true;
-		setRotation(lShaft, 0.1858931F, -3.141593F, -0.0371786F);
-		lPointIn = new ModelRenderer(this, 0, 0);
-		lPointIn.addBox(0.2F, -3F, -0.2666667F, 1, 1, 1);
-		lPointIn.setRotationPoint(2F, -8F, 0F);
-		lPointIn.setTextureSize(64, 32);
-		lPointIn.mirror = true;
-		setRotation(lPointIn, 0.1858931F, -3.141593F, -0.0371786F);
-		lTop = new ModelRenderer(this, 0, 0);
-		lTop.addBox(-0.8F, -4.933333F, -0.4F, 1, 1, 1);
-		lTop.setRotationPoint(2F, -8F, 0F);
-		lTop.setTextureSize(64, 32);
-		lTop.mirror = true;
-		setRotation(lTop, 0.1858931F, -3.141593F, -0.0371786F);
-		rPointOut1 = new ModelRenderer(this, 0, 0);
-		rPointOut1.addBox(-0.9F, -3F, -0.5F, 1, 1, 1);
-		rPointOut1.setRotationPoint(-2F, -8F, 0F);
-		rPointOut1.setTextureSize(64, 32);
-		rPointOut1.mirror = true;
-		setRotation(rPointOut1, -0.1858931F, 0.0371786F, -0.0371786F);
-		rPointOutEnd = new ModelRenderer(this, 0, 0);
-		rPointOutEnd.addBox(-2.533333F, -3.4F, -0.4F, 1, 1, 1);
-		rPointOutEnd.setRotationPoint(-2F, -8F, 0F);
-		rPointOutEnd.setTextureSize(64, 32);
-		rPointOutEnd.mirror = true;
-		setRotation(rPointOutEnd, -0.1858931F, 0.0371786F, -0.0371786F);
-		rPointOut2 = new ModelRenderer(this, 0, 0);
-		rPointOut2.addBox(-1.8F, -3F, -0.5333334F, 1, 1, 1);
-		rPointOut2.setRotationPoint(-2F, -8F, 0F);
-		rPointOut2.setTextureSize(64, 32);
-		rPointOut2.mirror = true;
-		setRotation(rPointOut2, -0.1858931F, 0.0371786F, -0.0371786F);
-		rShaft = new ModelRenderer(this, 0, 0);
-		rShaft.addBox(-0.5F, -4F, -0.4666667F, 1, 4, 1);
-		rShaft.setRotationPoint(-2F, -8F, 0F);
-		rShaft.setTextureSize(64, 32);
-		rShaft.mirror = true;
-		setRotation(rShaft, -0.1858931F, 0.0371786F, -0.0371786F);
-		rPointIn = new ModelRenderer(this, 0, 0);
-		rPointIn.addBox(0.2F, -3F, -0.2666667F, 1, 1, 1);
-		rPointIn.setRotationPoint(-2F, -8F, 0F);
-		rPointIn.setTextureSize(64, 32);
-		rPointIn.mirror = true;
-		setRotation(rPointIn, -0.1858931F, 0.0371786F, -0.0371786F);
-		rTop = new ModelRenderer(this, 0, 0);
-		rTop.addBox(-0.8F, -4.933333F, -0.4F, 1, 1, 1);
-		rTop.setRotationPoint(-2F, -8F, 0F);
-		rTop.setTextureSize(64, 32);
-		rTop.mirror = true;
-		setRotation(rTop, -0.1858931F, 0.0371786F, -0.0371786F);
-
-		modelMap = createModelMap();
+		modelMap = createModelMap(this.getClass());
 	}
-
 
 	@Override
-	public void render(Entity entity, float rotateAngleX, float rotateAngleY, float passNumber, float unused2, float unused3, float interpolation)
+	public void applyRenderCorrections(boolean isLeft)
 	{
-		for (Map.Entry<ModelRenderer, Boolean> entry : modelMap.entrySet())
-		{
-			final boolean isLeft = entry.getValue();
-
-			if ((passNumber == 0 && isLeft) || (passNumber == 1 && !isLeft))
-			{
-				entry.getKey().render(interpolation);
-			}
-		}
+		GL11.glTranslatef(0.0F, -0.475F, 0.0F);
 	}
 
-	private void setRotation(ModelRenderer model, float x, float y, float z)
+	@Override
+	public void bindTexture()
 	{
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
-	}
-
-	public void setHeadRotationForAllModels(float rotateAngleX, float rotateAngleY)
-	{
-		for (ModelRenderer model : modelMap.keySet())
-		{
-			if (model != null)
-			{
-				model.rotateAngleX = rotateAngleX / (180F / (float)Math.PI);
-				model.rotateAngleY = rotateAngleY / (180F / (float)Math.PI);
-				model.rotationPointX = 0.0F;
-				model.rotationPointY = 0.0F;
-			}
-		}
-	}
-
-	private Map<ModelRenderer, Boolean> createModelMap()
-	{
-		final Map<ModelRenderer, Boolean> returnMap = new HashMap<ModelRenderer, Boolean>();
-
-		try
-		{
-			for (Field f : this.getClass().getDeclaredFields())
-			{
-				final Object obj = f.get(this);
-
-				if (obj instanceof ModelRenderer)
-				{
-					final boolean isLeft = f.getName().startsWith("l");
-					returnMap.put((ModelRenderer)obj, isLeft);
-				}
-			}
-		}
-
-		catch (Throwable e)
-		{
-			throw new RuntimeException(e);
-		}
-
-		return returnMap;
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("mysticcreatures:textures/Antlers1.png"));
 	}
 }

@@ -1,6 +1,8 @@
 package com.radixshock.mysticcreatures.core;
 
+import com.radixshock.mysticcreatures.client.model.AbstractSpecial;
 import com.radixshock.mysticcreatures.core.forge.EventHooks;
+import com.radixshock.mysticcreatures.core.forge.GuiHandler;
 import com.radixshock.radixcore.core.ModLogger;
 import com.radixshock.radixcore.core.RadixCore;
 import com.radixshock.radixcore.core.UnenforcedCore;
@@ -14,6 +16,9 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = "mysticcreatures", name = "Mystic Creatures", version = Constants.VERSION, dependencies = "required-after:radixcore")
 public class MysticCreatures extends UnenforcedCore
@@ -22,6 +27,13 @@ public class MysticCreatures extends UnenforcedCore
 	private static MysticCreatures	instance;
 	
 	private ModLogger logger;
+	
+	@SideOnly(Side.CLIENT)
+	public AbstractSpecial modelEarUse;
+	@SideOnly(Side.CLIENT)
+	public AbstractSpecial modelAntlerUse;
+	@SideOnly(Side.CLIENT)
+	public AbstractSpecial modelHornUse;
 	
 	public MysticCreatures()
 	{
@@ -40,6 +52,7 @@ public class MysticCreatures extends UnenforcedCore
 		logger = new ModLogger(this);
 		
 		FMLCommonHandler.instance().bus().register(new KeyHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
 
 	@Override
