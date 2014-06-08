@@ -45,12 +45,12 @@ public class GuiSpecialsSelect extends GuiScreen
 		buttonList.add(buttonDecreaseRotation 	= new GuiButton(1, width / 2 + 120, height / 2 + 95, 30, 20, "<<"));
 		buttonList.add(buttonIncreaseRotation 	= new GuiButton(2, width / 2 + 150, height / 2 + 95, 30, 20, ">>"));
 
-		buttonList.add(buttonEnableAntlers 		= new GuiButton(3, width / 2 - 210, height / 2 - 65, 80, 20, "Enabled: Yes"));
+		buttonList.add(buttonEnableAntlers 		= new GuiButton(3, width / 2 - 210, height / 2 - 65, 80, 20, MysticCreatures.getInstance().modelAntlerUse != null ? "Enabled: Yes" : "Enabled: No"));
 		for (EnumModel antler : EnumModel.getAntlers())
 		{
 			final GuiButton button = new GuiButton(antler.getId(), width / 2 - 205, height / 2 + modY, 70, 20, antler.getButtonName());
 			
-			if (MysticCreatures.getInstance().modelAntlerUse == antler.getModel())
+			if (MysticCreatures.getInstance().modelAntlerUse == antler.getModel() || MysticCreatures.getInstance().modelAntlerUse == null)
 			{
 				button.enabled = false;
 			}
@@ -60,12 +60,12 @@ public class GuiSpecialsSelect extends GuiScreen
 		}
 		modY = -30;
 		
-		buttonList.add(buttonEnableHorns 		= new GuiButton(6, width / 2 - 90, height / 2 - 65, 80, 20, "Enabled: Yes"));
+		buttonList.add(buttonEnableHorns 		= new GuiButton(6, width / 2 - 90, height / 2 - 65, 80, 20, MysticCreatures.getInstance().modelHornUse != null ? "Enabled: Yes" : "Enabled: No"));
 		for (EnumModel horn : EnumModel.getHorns())
 		{
 			final GuiButton button = new GuiButton(horn.getId(), width / 2 - 85, height / 2 + modY, 70, 20, horn.getButtonName());
 			
-			if (MysticCreatures.getInstance().modelHornUse == horn.getModel())
+			if (MysticCreatures.getInstance().modelHornUse == horn.getModel() || MysticCreatures.getInstance().modelHornUse == null)
 			{
 				button.enabled = false;
 			}
@@ -75,12 +75,12 @@ public class GuiSpecialsSelect extends GuiScreen
 		}
 		modY = -30;
 
-		buttonList.add(buttonEnableEars 		= new GuiButton(8, width / 2 + 30, height / 2 - 65, 80, 20, "Enabled: Yes"));
+		buttonList.add(buttonEnableEars 		= new GuiButton(8, width / 2 + 30, height / 2 - 65, 80, 20, MysticCreatures.getInstance().modelEarUse != null ? "Enabled: Yes" : "Enabled: No"));
 		for (EnumModel ear : EnumModel.getEars())
 		{
 			final GuiButton button = new GuiButton(ear.getId(), width / 2 + 35, height / 2 + modY, 70, 20, ear.getButtonName());
 			
-			if (MysticCreatures.getInstance().modelEarUse == ear.getModel())
+			if (MysticCreatures.getInstance().modelEarUse == ear.getModel() || MysticCreatures.getInstance().modelEarUse == null)
 			{
 				button.enabled = false;
 			}
@@ -116,6 +116,45 @@ public class GuiSpecialsSelect extends GuiScreen
 		else if (button == buttonIncreaseRotation)
 		{
 			rotation += 20F;
+		}
+		
+		else if (button == buttonEnableAntlers)
+		{
+			if (MysticCreatures.getInstance().modelAntlerUse == null)
+			{
+				MysticCreatures.getInstance().modelAntlerUse = Models.antlers1;
+			}
+			
+			else
+			{
+				MysticCreatures.getInstance().modelAntlerUse = null;
+			}
+		}
+		
+		else if (button == buttonEnableHorns)
+		{
+			if (MysticCreatures.getInstance().modelHornUse == null)
+			{
+				//MysticCreatures.getInstance().modelHornUse = Models.horn1;
+			}
+			
+			else
+			{
+				MysticCreatures.getInstance().modelHornUse = null;
+			}
+		}
+		
+		else if (button == buttonEnableEars)
+		{
+			if (MysticCreatures.getInstance().modelEarUse == null)
+			{
+				MysticCreatures.getInstance().modelEarUse = Models.ears1;
+			}
+			
+			else
+			{
+				MysticCreatures.getInstance().modelEarUse = null;
+			}
 		}
 		
 		for (EnumModel antler : EnumModel.getAntlers())
