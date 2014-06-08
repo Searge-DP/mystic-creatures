@@ -9,31 +9,23 @@
 
 package mysticcreatures.client.model;
 
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class ModelEars1 extends AbstractSpecial
 {
-	ModelRenderer refHead;
-	ModelRenderer r1;
-	ModelRenderer r2;
-	ModelRenderer r3;
-	ModelRenderer r4;
-	ModelRenderer r5;
-	ModelRenderer l5;
-	ModelRenderer l4;
-	ModelRenderer l3;
-	ModelRenderer l2;
-	ModelRenderer l1;
+	ModelRenderer	refHead;
+	ModelRenderer	r1;
+	ModelRenderer	r2;
+	ModelRenderer	r3;
+	ModelRenderer	r4;
+	ModelRenderer	r5;
+	ModelRenderer	l5;
+	ModelRenderer	l4;
+	ModelRenderer	l3;
+	ModelRenderer	l2;
+	ModelRenderer	l1;
 
 	public ModelEars1()
 	{
@@ -107,7 +99,7 @@ public class ModelEars1 extends AbstractSpecial
 		l1.mirror = true;
 		setRotation(l1, -0.2974289F, 0.0743572F, 0.260246F);
 
-		this.modelMap = this.createModelMap(this.getClass());
+		modelMap = createModelMap(this.getClass());
 	}
 
 	@Override

@@ -35,32 +35,32 @@ public class MysticCreatures extends UnenforcedCore
 {
 	@Instance("mysticcreatures")
 	private static MysticCreatures	instance;
-	
-	private ModLogger logger;
-	
+
+	private ModLogger				logger;
+
 	@SideOnly(Side.CLIENT)
-	public AbstractSpecial modelEarUse;
+	public AbstractSpecial			modelEarUse;
 	@SideOnly(Side.CLIENT)
-	public AbstractSpecial modelAntlerUse;
+	public AbstractSpecial			modelAntlerUse;
 	@SideOnly(Side.CLIENT)
-	public AbstractSpecial modelHornUse;
-	
+	public AbstractSpecial			modelHornUse;
+
 	public MysticCreatures()
 	{
 		RadixCore.registeredMods.add(this);
 	}
-	
+
 	public static MysticCreatures getInstance()
 	{
 		return instance;
 	}
-	
+
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		instance = this;
 		logger = new ModLogger(this);
-		
+
 		FMLCommonHandler.instance().bus().register(new KeyHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
@@ -68,7 +68,7 @@ public class MysticCreatures extends UnenforcedCore
 	@Override
 	public void initializeNetwork()
 	{
-		
+
 	}
 
 	@Override
@@ -104,8 +104,7 @@ public class MysticCreatures extends UnenforcedCore
 	@Override
 	public String getRedirectURL()
 	{
-		return "http://radix-shock.com/update-page.html?userMysticCreatures=" + getVersion() + 
-				"&currentMysticCreatures=%" + "&userMC=" + Loader.instance().getMCVersionString().substring(10) + "&currentMC=%";
+		return "http://radix-shock.com/update-page.html?userMysticCreatures=" + getVersion() + "&currentMysticCreatures=%" + "&userMC=" + Loader.instance().getMCVersionString().substring(10) + "&currentMC=%";
 	}
 
 	@Override
@@ -149,7 +148,7 @@ public class MysticCreatures extends UnenforcedCore
 	{
 		return EventHooks.class;
 	}
-	
+
 	public static float interpolateRotation(float rotationA, float rotationB, float interpolation)
 	{
 		float difference;

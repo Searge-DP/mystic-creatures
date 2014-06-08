@@ -16,21 +16,21 @@ import java.util.Map;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
 
 public abstract class AbstractSpecial extends ModelBiped
 {
 	/** Key = Is model for the left side, Value = the model */
-	protected Map<ModelRenderer, Boolean> modelMap;
+	protected Map<ModelRenderer, Boolean>	modelMap;
 
-	public float renderRotateX;
-	public float renderRotateY;
+	public float							renderRotateX;
+	public float							renderRotateY;
+
 	public abstract void applyRenderCorrections(boolean isLeft);
 
 	@Override
 	public void render(Entity entity, float rotateAngleX, float rotateAngleY, float passNumber, float unused2, float unused3, float interpolation)
 	{
-		for (Map.Entry<ModelRenderer, Boolean> entry : modelMap.entrySet())
+		for (final Map.Entry<ModelRenderer, Boolean> entry : modelMap.entrySet())
 		{
 			entry.getKey().render(interpolation);
 		}
@@ -38,12 +38,12 @@ public abstract class AbstractSpecial extends ModelBiped
 
 	public void setHeadRotationForAllModels(float rotateAngleX, float rotateAngleY)
 	{
-		for (ModelRenderer model : modelMap.keySet())
+		for (final ModelRenderer model : modelMap.keySet())
 		{
 			if (model != null)
 			{
-				model.rotateAngleX = rotateAngleX / (180F / (float)Math.PI) + renderRotateX;
-				model.rotateAngleY = rotateAngleY / (180F / (float)Math.PI) + renderRotateY;
+				model.rotateAngleX = rotateAngleX / (180F / (float) Math.PI) + renderRotateX;
+				model.rotateAngleY = rotateAngleY / (180F / (float) Math.PI) + renderRotateY;
 			}
 		}
 	}
@@ -63,7 +63,7 @@ public abstract class AbstractSpecial extends ModelBiped
 
 		try
 		{
-			for (Field f : clazz.getDeclaredFields())
+			for (final Field f : clazz.getDeclaredFields())
 			{
 				final Object obj = f.get(this);
 
@@ -73,13 +73,13 @@ public abstract class AbstractSpecial extends ModelBiped
 
 					if (!f.getName().startsWith("ref"))
 					{
-						returnMap.put((ModelRenderer)obj, isLeft);
+						returnMap.put((ModelRenderer) obj, isLeft);
 					}
 				}
 			}
 		}
 
-		catch (Throwable e)
+		catch (final Throwable e)
 		{
 			throw new RuntimeException(e);
 		}

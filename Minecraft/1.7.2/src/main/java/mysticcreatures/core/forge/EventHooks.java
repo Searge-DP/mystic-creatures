@@ -26,8 +26,7 @@ public class EventHooks
 		final AbstractClientPlayer player = (AbstractClientPlayer) event.entityPlayer;
 		final float interpolation = event.partialRenderTick;
 
-		float interpolatedYaw = player.prevRotationYaw + (player.rotationYaw - player.prevRotationYaw) * interpolation - (player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * interpolation);
-		float interpolatedPitch = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * interpolation;
+		final float interpolatedPitch = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * interpolation;
 
 		for (int i = 0; i < 2; i++)
 		{
@@ -39,8 +38,8 @@ public class EventHooks
 
 				GL11.glPushMatrix();
 				{
-					float interpolatedYawOffset = MysticCreatures.interpolateRotation(player.prevRenderYawOffset, player.renderYawOffset, interpolation);
-					float interpolatedYawHead = MysticCreatures.interpolateRotation(player.prevRotationYawHead, player.rotationYawHead, interpolation);
+					final float interpolatedYawOffset = MysticCreatures.interpolateRotation(player.prevRenderYawOffset, player.renderYawOffset, interpolation);
+					final float interpolatedYawHead = MysticCreatures.interpolateRotation(player.prevRotationYawHead, player.rotationYawHead, interpolation);
 					modelUse.setHeadRotationForAllModels(interpolatedPitch, interpolatedYawHead - interpolatedYawOffset);
 					modelUse.render(event.entityPlayer, interpolatedPitch, interpolatedYawHead - interpolatedYawOffset, 0, 0.0F, 0.0F, 0.0625F);
 				}

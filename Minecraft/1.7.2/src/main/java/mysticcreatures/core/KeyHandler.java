@@ -21,20 +21,20 @@ import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
 
 public class KeyHandler
 {
-	private KeyBinding keybindOpenHeadgearMenu = new KeyBinding("Open Headgear Menu", Keyboard.KEY_F, "Mystic Creatures");
-	
+	private final KeyBinding	keybindOpenHeadgearMenu	= new KeyBinding("Open Headgear Menu", Keyboard.KEY_F, "Mystic Creatures");
+
 	public KeyHandler()
 	{
 		ClientRegistry.registerKeyBinding(keybindOpenHeadgearMenu);
 	}
-	
+
 	@SubscribeEvent
 	public void onKeyInput(KeyInputEvent event)
 	{
 		if (keybindOpenHeadgearMenu.getIsKeyPressed() && Minecraft.getMinecraft().currentScreen == null)
 		{
 			final EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-			player.openGui(MysticCreatures.getInstance(), Constants.ID_GUI_SELECT, player.worldObj, (int)player.posX, (int)player.posY, (int)player.posZ);
+			player.openGui(MysticCreatures.getInstance(), Constants.ID_GUI_SELECT, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
 		}
 	}
 }

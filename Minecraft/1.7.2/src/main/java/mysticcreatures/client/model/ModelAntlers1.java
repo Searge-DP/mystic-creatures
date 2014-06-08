@@ -9,27 +9,27 @@
 
 package mysticcreatures.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 
+import org.lwjgl.opengl.GL11;
+
 public class ModelAntlers1 extends AbstractSpecial
 {
-	ModelRenderer r5;
-	ModelRenderer r3;
-	ModelRenderer r2;
-	ModelRenderer r1;
-	ModelRenderer r6;
-	ModelRenderer r4;
-	ModelRenderer refHead;
-	ModelRenderer l1;
-	ModelRenderer l5;
-	ModelRenderer l6;
-	ModelRenderer l2;
-	ModelRenderer l3;
-	ModelRenderer l4;
+	ModelRenderer	r5;
+	ModelRenderer	r3;
+	ModelRenderer	r2;
+	ModelRenderer	r1;
+	ModelRenderer	r6;
+	ModelRenderer	r4;
+	ModelRenderer	refHead;
+	ModelRenderer	l1;
+	ModelRenderer	l5;
+	ModelRenderer	l6;
+	ModelRenderer	l2;
+	ModelRenderer	l3;
+	ModelRenderer	l4;
 
 	public ModelAntlers1()
 	{

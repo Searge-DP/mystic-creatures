@@ -9,29 +9,27 @@
 
 package mysticcreatures.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class ModelAntlers2 extends AbstractSpecial
 {
-	ModelRenderer refHead;
-	ModelRenderer r1;
-	ModelRenderer r2;
-	ModelRenderer r3;
-	ModelRenderer r4;
-	ModelRenderer r5;
-	ModelRenderer r6;
-	ModelRenderer r7;
-	ModelRenderer l1;
-	ModelRenderer l2;
-	ModelRenderer l3;
-	ModelRenderer l4;
-	ModelRenderer l5;
-	ModelRenderer l6;
-	ModelRenderer l7;
+	ModelRenderer	refHead;
+	ModelRenderer	r1;
+	ModelRenderer	r2;
+	ModelRenderer	r3;
+	ModelRenderer	r4;
+	ModelRenderer	r5;
+	ModelRenderer	r6;
+	ModelRenderer	r7;
+	ModelRenderer	l1;
+	ModelRenderer	l2;
+	ModelRenderer	l3;
+	ModelRenderer	l4;
+	ModelRenderer	l5;
+	ModelRenderer	l6;
+	ModelRenderer	l7;
 
 	public ModelAntlers2()
 	{
@@ -135,8 +133,8 @@ public class ModelAntlers2 extends AbstractSpecial
 		r7.mirror = true;
 		setRotation(r7, -0.3346075F, 0F, -0.0462687F);
 		r7.mirror = false;
-		
-		modelMap = this.createModelMap(getClass());
+
+		modelMap = createModelMap(getClass());
 	}
 
 	@Override
