@@ -1,15 +1,15 @@
 [
 {
-  "modid": "spiderqueen",
-  "name": "Spider Queen - Reborn",
-  "description": "A revival of the popular Spider Queen mod by djoslin.",
-  "version": "1.1.0",
+  "modid": "mysticcreatures",
+  "name": "Mystic Creatures",
+  "description": "Add horns, antlers, and ears to your player model.",
+  "version": "1.0.0",
   "mcversion": "1.7.2",
   "url": "",
   "updateUrl": "",
-  "authors": ["WildBamaBoy", "SheWolfDeadly"],
-  "credits": "djoslin, Pullahoko, pelindolok, others",
-  "logoFile": "/spiderqueen.png",
+  "authors": ["ihasCupquake", "WildBamaBoy", "SheWolfDeadly"],
+  "credits": "",
+  "logoFile": "/mysticcreatures.png",
   "screenshots": [],
   "dependencies": []
 }

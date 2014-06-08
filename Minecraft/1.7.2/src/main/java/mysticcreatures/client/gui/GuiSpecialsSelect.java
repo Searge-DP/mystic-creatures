@@ -1,5 +1,17 @@
-package com.radixshock.mysticcreatures.client.gui;
+/*******************************************************************************
+ * GuiSpecialsSelect.java
+ * Copyright (c) 2014 Radix-Shock Entertainment.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Public License v3.0
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/gpl.html
+ ******************************************************************************/
 
+package mysticcreatures.client.gui;
+
+import mysticcreatures.core.EnumModel;
+import mysticcreatures.core.Models;
+import mysticcreatures.core.MysticCreatures;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiOptionSlider;
 import net.minecraft.client.gui.GuiScreen;
@@ -10,10 +22,6 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
-import com.radixshock.mysticcreatures.core.EnumModel;
-import com.radixshock.mysticcreatures.core.Models;
-import com.radixshock.mysticcreatures.core.MysticCreatures;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

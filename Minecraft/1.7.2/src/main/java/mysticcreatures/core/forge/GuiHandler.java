@@ -1,10 +1,19 @@
-package com.radixshock.mysticcreatures.core.forge;
+/*******************************************************************************
+ * GuiHandler.java
+ * Copyright (c) 2014 Radix-Shock Entertainment.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Public License v3.0
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/gpl.html
+ ******************************************************************************/
 
+package mysticcreatures.core.forge;
+
+import mysticcreatures.client.gui.GuiSpecialsSelect;
+import mysticcreatures.core.Constants;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import com.radixshock.mysticcreatures.client.gui.GuiSpecialsSelect;
-import com.radixshock.mysticcreatures.core.Constants;
 import com.radixshock.radixcore.logic.LogicHelper;
 
 import cpw.mods.fml.common.network.IGuiHandler;

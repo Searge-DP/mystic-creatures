@@ -2,7 +2,7 @@
 
 #-------------------------------------------------------------------------------
 # Assemble.py
-# Prepares Spider Queen to be distributed by packaging the mod
+# Prepares Mystic Creatures to be distributed by packaging the mod
 # archive and source archives.
 #
 # This file, both in source code form or as a compiled binary, is free and
@@ -24,7 +24,7 @@ dirCrowdin = dirCWD + "Crowdin/"
 
 def main():
     print "---------------------------------------------"
-    print "Spider Queen Packaging Script"
+    print "Mystic Creatures Packaging Script"
     print "---------------------------------------------"
 
     #Get release version
@@ -76,7 +76,7 @@ def build():
     createSourceArchive()
 
 def copyRadixSourceToMod():
-    log("Copying RadixCore source code to Spider Queen directory...")
+    log("Copying RadixCore source code to Mystic Creatures directory...")
 
     dirRadixSrc = "D:/Programming/radix-core/Minecraft/1.7.2/src/main/java/com/"
     dirRadixDst = dirGradleBase + "/src/main/java/com/"
@@ -88,19 +88,19 @@ def copyRadixSourceToMod():
     shutil.copytree(dirRadixSrc, dirGradleBase + "/src/main/java/com/")
 
 def deleteRadixSourceFromMod():
-    log("Deleting RadixCore source code from Spider Queen directory...")
+    log("Deleting RadixCore source code from Mystic Creatures directory...")
     shutil.rmtree(dirGradleBase + "/src/main/java/com/")
 
 def updateLanguageFiles():
     log("Updating language files...")
     convertLanguageFiles()
 
-    dirAssetsSQ = dirGradleBase + "/src/main/resources/assets/spiderqueen/"
+    dirAssetsSQ = dirGradleBase + "/src/main/resources/assets/mysticcreatures/"
     shutil.rmtree(dirAssetsSQ + "/lang")
     shutil.copytree(dirCrowdin + "/Build/", dirAssetsSQ + "/lang")
 
 def callGradleSubprocess():
-    log("Building Spider Queen...")
+    log("Building Mystic Creatures...")
 
     os.chdir(dirGradleBase)
     print "--------------------- GRADLE BEGIN ---------------------"
@@ -110,7 +110,7 @@ def callGradleSubprocess():
 def moveBuildToBuildFolder():
     log("Moving build to build folder...")
 
-    fileFinishedBuild = dirGradleBase + "/build/libs/SpiderQueen-RadixAssembled.jar"
+    fileFinishedBuild = dirGradleBase + "/build/libs/MysticCreatures-RadixAssembled.jar"
 
     if os.path.exists(dirBuild):
         logSub("Removing existing build folder...")
@@ -119,13 +119,13 @@ def moveBuildToBuildFolder():
         time.sleep(1)
 
     os.mkdir(dirBuild)
-    shutil.copy(fileFinishedBuild, dirBuild + "/_in_SpiderQueenReborn-" + modVersion + " MC-" + minecraftVersion + ".zip")
+    shutil.copy(fileFinishedBuild, dirBuild + "/_in_MysticCreatures-" + modVersion + " MC-" + minecraftVersion + ".zip")
 
 def cleanBuild():
-    log("Cleaning Spider Queen...")
+    log("Cleaning Mystic Creatures...")
 
-    fileInArchive = dirBuild + "/_in_SpiderQueenReborn-" + modVersion + " MC-" + minecraftVersion + ".zip"
-    fileOutArchive = dirBuild + "/_out_SpiderQueenReborn-" + modVersion + " MC-" + minecraftVersion + ".zip"
+    fileInArchive = dirBuild + "/_in_MysticCreatures-" + modVersion + " MC-" + minecraftVersion + ".zip"
+    fileOutArchive = dirBuild + "/_out_MysticCreatures-" + modVersion + " MC-" + minecraftVersion + ".zip"
 
     zipInArchive = zipfile.ZipFile(fileInArchive, "r", zipfile.ZIP_DEFLATED)
     zipOutArchive = zipfile.ZipFile(fileOutArchive, "w", zipfile.ZIP_DEFLATED)
@@ -151,15 +151,15 @@ def createSourceArchive():
 
     log("Building source archive...")
 
-    sourceFolder = dirGradleBase + "/src/main/java/spiderqueen/"
-    sourceArchive = zipfile.ZipFile(dirBuild + "/SpiderQueenReborn-" + modVersion + " MC-" + minecraftVersion + " - Source.zip", "w", zipfile.ZIP_DEFLATED)
+    sourceFolder = dirGradleBase + "/src/main/java/mysticcreatures/"
+    sourceArchive = zipfile.ZipFile(dirBuild + "/MysticCreatures-" + modVersion + " MC-" + minecraftVersion + " - Source.zip", "w", zipfile.ZIP_DEFLATED)
     sourceFiles = os.listdir(sourceFolder)
 
     for root, dirs, files in os.walk(sourceFolder):
         for fileName in files:
             containsCorrectHeader = False
             fullPath = os.path.join(root, fileName)
-            archiveName = fullPath.replace(sourceFolder, "spiderqueen/")
+            archiveName = fullPath.replace(sourceFolder, "mysticcreatures/")
             sourceArchive.write(fullPath, archiveName)
 
             with open(fullPath) as f:
